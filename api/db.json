@@ -1,27 +1,19 @@
 {
   "students": [
     {
-      "name": "jessica ayerst",
-      "id": 1
-    },
-    {
       "name": "Shane Ayerst",
       "id": 2
-    },
-    {
-      "name": "Wren Cragle",
-      "id": 3
     },
     {
       "name": "Owlsley Wells",
       "id": 4
     },
     {
-      "name": "Tommy",
+      "name": "Jessica Ayerst",
       "id": 5
     },
     {
-      "name": "student",
+      "name": "Wren Cragle",
       "id": 6
     }
   ]
