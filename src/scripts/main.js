@@ -56,4 +56,70 @@ document.querySelector("body").addEventListener("click", () => {
 });
 
 
+// -------EDIT EVENT LISTENERS----------------
+// Event listener for edit button
+document.querySelector("body").addEventListener("click", () => {
+    if(event.target.id.includes("edit-student")){
+        // Get the id of the thing we want to edit from the button's id attribute
+        const wordArray = event.target.id.split("-");
+        const idOfThingWeWantToEdit = wordArray[2];
+
+        // Pass that ID into our apiManager to bring back the student we want to edit
+        apiManager.getOneStudent(idOfThingWeWantToEdit)
+        .then(singleStudent => {
+            domPrinter.printStudentEditForm(singleStudent)
+        })
+    }
+})
+
+
+// Event listener for save button
+document.querySelector("body").addEventListener("click", () => {
+    if(event.target.id.includes("save-edit")){
+        // get the id of the thing we want to edit
+        const wordArray = event.target.id.split("-");
+        const idOfThingWeWantToEdit = wordArray[2];
+        console.log(idOfThingWeWantToEdit);
+
+        // get the value of the input
+        const editedInputValue = document.querySelector(`#edit-input-${idOfThingWeWantToEdit}`).value
+
+        // put the input value into an object
+        const editedStudentObj = {
+            name:editedInputValue
+        }
+        console.log("this is what we're going to send to the db", editedInputValue)
+        // send to database w/PUT method
+        apiManager.editOneStudent(idOfThingWeWantToEdit, editedStudentObj)
+        .then(() => {
+            apiManager.getAllStudents()
+            .then(allStudents => {
+                domPrinter.printStudentsToDOM(allStudents)
+            })
+        })
+        // once the PUT is complete, get all studetns from the db and when the come back, print to dom. 
+        // you have to do ".then" in between these, or it does not have time to bring them back from database.
+    }
+    
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

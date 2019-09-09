@@ -5,6 +5,12 @@ const apiManager = {
             response.json()
         );
     },
+    // method to get one student
+    getOneStudent: studentId => {
+        return fetch(`http://localhost:8088/students/${studentId}`).then(response =>
+          response.json()
+        );
+      },
     // method to post one student
     postOneStudent: singleStudentObject =>
         fetch("http://localhost:8088/students", {
@@ -18,7 +24,17 @@ const apiManager = {
     deleteOneStudent: (id) =>
         fetch(`http://localhost:8088/students/${id}`, {
             method: "DELETE"
-        })
+        }),
+    // method to edit one student
+    editOneStudent: (id, studentObject) => {
+        return  fetch(`http://localhost:8088/students/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(studentObject)
+          })
+    }
 
 };
 
