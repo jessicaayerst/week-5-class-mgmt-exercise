@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "name": "Shane Ayerst!!!!####",
+      "name": "Shane Ayerst",
       "id": 2
     },
     {
@@ -15,6 +15,10 @@
     {
       "name": "Wren Cragle",
       "id": 6
+    },
+    {
+      "name": "Jordan Teacher",
+      "id": 7
     }
   ]
 }
